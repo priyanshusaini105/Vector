@@ -25,8 +25,8 @@ public class GameController : MonoBehaviour
 
     }
 
-    public pause(){
-        
+    public void PauseGame(){
+
     }
 
     public void ReplayGame(){
