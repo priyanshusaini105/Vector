@@ -22,6 +22,10 @@ public class GameController : MonoBehaviour
     }
 
     public void Play(){
+
+    }
+
+    public pause(){
         
     }
 
