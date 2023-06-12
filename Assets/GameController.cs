@@ -20,4 +20,13 @@ public class GameController : MonoBehaviour
             Application.Quit();
         #endif
     }
+
+    public void Play(){
+        
+    }
+
+    public void ReplayGame(){
+
+    }
+
 }
