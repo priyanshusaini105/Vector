@@ -507,10 +507,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa0f5796184dd246a2b9ea3f1e8c04b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: -5.21
-  forwardSpeed: 7.82
+  gravity: -8
+  forwardSpeed: 4
   jumpForce: 5
-  isGrounded: 0
 --- !u!61 &144089397
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1946,7 +1945,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216585276}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 111.81, y: -28.4, z: 9.949265}
+  m_LocalPosition: {x: 111.81, y: -29.24, z: 9.949265}
   m_LocalScale: {x: 2.6643322, y: 1.8862529, z: 1.8862529}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3507,7 +3506,6 @@ MonoBehaviour:
   gravity: 0
   forwardSpeed: 5
   jumpForce: 5
-  isGrounded: 0
 --- !u!61 &2111480413
 BoxCollider2D:
   m_ObjectHideFlags: 0
