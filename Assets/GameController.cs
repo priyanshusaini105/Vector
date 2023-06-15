@@ -1,8 +1,14 @@
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class GameController : MonoBehaviour
 {
+    
+    private bool isPaused = false;
+
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -20,16 +26,24 @@ public class GameController : MonoBehaviour
         #endif
     }
 
+    public void PauseGame()
+    {
+        isPaused = true;
+        Time.timeScale = 0f;
+    }
+
+    public void ResumeGame()
+    {
+        isPaused = false;
+        Time.timeScale = 1f;
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     public void Play(){
-
+        SceneManager.LoadScene("Game");
     }
-
-    public void PauseGame(){
-
-    }
-
-    public void ReplayGame(){
-
-    }
-
 }
