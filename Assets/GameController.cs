@@ -7,7 +7,12 @@ public class GameController : MonoBehaviour
 {
     
     private bool isPaused = false;
+    // public GameObject QuitPanel;
 
+    // void Start()
+    // {   
+    //     QuitPanel = parentObject.Find("QuitPanel").gameObject; 
+    // }
 
     void Update()
     {
