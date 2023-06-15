@@ -51,4 +51,8 @@ public class GameController : MonoBehaviour
     public void Play(){
         SceneManager.LoadScene("Game");
     }
+
+    public void LoadScene(string sceneName){
+        SceneManager.LoadScene(sceneName);
+    }
 }
