@@ -5,15 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class ColliisonDetection : MonoBehaviour
 {
+    void Start()
+    {
+     Debug.Log("Start");   
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
+            Debug.Log("Lose");
         if (other.CompareTag("EdgeColliderTag"))
         {
-            lose();
+            Lose();
         }
     }
 
-    public void lose(string isLose="Lose")
+    public void Lose(string isLose="Lose")
     {
         SceneManager.LoadScene(isLose);
     }

@@ -1,18 +1,11 @@
-
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 public class GameController : MonoBehaviour
 {
-    
     private bool isPaused = false;
-    // public GameObject QuitPanel;
-
-    // void Start()
-    // {   
-    //     QuitPanel = parentObject.Find("QuitPanel").gameObject; 
-    // }
+    public GameObject[] buildings;
+    public GameObject player;
 
     void Update()
     {
@@ -48,11 +41,43 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void Play(){
+    public void Play()
+    {
         SceneManager.LoadScene("Game");
     }
 
-    public void LoadScene(string sceneName){
+    public void LoadScene(string sceneName)
+    {
         SceneManager.LoadScene(sceneName);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Building"))
+        {
+            GameObject collidedBuilding = GetCollidedBuilding(other.gameObject);
+            if (collidedBuilding != null)
+            {
+                CollidedWithBuilding(collidedBuilding);
+            }
+        }
+    }
+
+    private GameObject GetCollidedBuilding(GameObject colliderObject)
+    {
+        foreach (GameObject building in buildings)
+        {
+            if (building == colliderObject)
+            {
+                return building;
+            }
+        }
+        return null;
+    }
+
+    private void CollidedWithBuilding(GameObject building)
+    {
+        Debug.Log("Player collided with a building: " + building.name);
+        // Add your code here to perform actions when the player collides with a building
     }
 }

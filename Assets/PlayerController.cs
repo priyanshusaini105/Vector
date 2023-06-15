@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        log("Collision Enter");
+        // log("Collision Enter");
             isGrounded = true;
             jumpsRemaining = 2;
     }
