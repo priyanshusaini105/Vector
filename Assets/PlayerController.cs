@@ -8,10 +8,11 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _player;
     private int jumpsRemaining = 2;
     private bool isGrounded = false;
-
+    public Animator _animator;
     private void Start()
     {
         _player = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -20,14 +21,14 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
-    }
 
-    private void FixedUpdate()
+     void FixedUpdate()
     {
         _player.velocity = new Vector2(forwardSpeed, _player.velocity.y);
+       _animator.SetBool("jump", !isGrounded);
     }
 
-    private void Jump()
+     void Jump()
     {
         if (jumpsRemaining > 0)
         {
@@ -41,14 +42,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+     void OnCollisionEnter2D(Collision2D collision)
     {
         // log("Collision Enter");
             isGrounded = true;
             jumpsRemaining = 2;
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+     void OnCollisionExit2D(Collision2D collision)
     {
         log("Collision Exit");
         if (collision.gameObject.CompareTag("Ground"))
@@ -60,5 +61,5 @@ public class PlayerController : MonoBehaviour
     void log(string msg){
         Debug.Log(msg);
     }
-    
+}
 }
