@@ -8,10 +8,12 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _player;
     private int jumpsRemaining = 2;
     private bool isGrounded = false;
+    private Animator _animator;
 
     private void Start()
     {
         _player = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -20,6 +22,8 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
+        Debug.Log("isGrounded: " + isGrounded);
+         _animator.SetBool("jump", !isGrounded);
     }
 
     private void FixedUpdate()
@@ -38,6 +42,7 @@ public class PlayerController : MonoBehaviour
 
             _player.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             jumpsRemaining--;
+            _animator.SetTrigger("jump");
         }
     }
 
